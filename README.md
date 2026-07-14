@@ -180,7 +180,7 @@ The analysis compared current support costs with projected costs under higher le
 ### AI Adoption Scenarios
 
 <p align="center">
-  <img src="images/Support Costs.png" width="900">
+  <img src="images/Support Costs.png" width="1000">
 </p>
 
 Increasing AI adoption produced substantial reductions in projected support costs. While AI chatbots significantly reduced operational expenses and response times, customer satisfaction remained relatively stable, suggesting that greater automation may be implemented without negatively affecting overall service quality.
