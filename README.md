@@ -19,7 +19,7 @@ Using Python, statistical hypothesis testing, exploratory data analysis, machine
 | Customer Sentiment | **0.30 (AI)** vs **0.40 (Human)** |
 | Projected Annual Savings | **$20,621** at **75% AI adoption** |
 
-**Bottom line:** AI significantly reduced response time and operational costs while maintaining comparable customer satisfaction. Human agents produced slightly stronger customer sentiment, and the two machine learning models tested here had limited predictive power on the available features — suggesting a hybrid support strategy, backed by better routing data, may offer the best balance between efficiency and customer experience.
+**Bottom line:** AI significantly reduced response time and operational costs while maintaining comparable customer satisfaction. Human agents produced slightly stronger customer sentiment, and the two machine learning models tested here had limited predictive power on the available features, which suggest a hybrid support strategy, backed by better routing data, may offer the best balance between efficiency and customer experience.
 
 ## Business Question
 
