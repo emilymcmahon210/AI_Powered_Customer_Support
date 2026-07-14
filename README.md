@@ -1,14 +1,14 @@
-# AI Powered Customer Support Analytics
-Statisical analysis comparing AI chatbot and human agent performance using hypothesis testing, exploratory data analysis, and business impact modeling. 
+# AI-Powered Customer Support Analytics
 
-# Executive Summary 
-Businesses are seemingly increasing reliance on AI-powered customer support to reduce operational costs while maintaining customer satisfaction. This project analyzes six months of customer interactions to compare AI chatbots and human agents across operational efficiency and customer experience metrics. 
+Statistical analysis comparing AI chatbot and human agent performance using hypothesis testing, exploratory data analysis, machine learning, and business impact modeling.
 
-Using python, statisical hypothesis testing, exploratory data analysis, and business scenario modeling, this analysis evaluates reponse time, interaction cost, customer satisfaction, sentiment and resolution performance. The results suggest that AI significantly improves efficiency while maintaining comoparable customer satisfaction, though human agents continue to outperform AI in customer sentiment. 
+## Executive Summary
 
-## Key Findings 
+Businesses are increasingly relying on AI-powered customer support to reduce operational costs while maintaining customer satisfaction. This project analyzes six months of customer interactions to compare AI chatbots and human agents across operational efficiency and customer experience metrics.
 
-### At a Glance
+Using Python, statistical hypothesis testing, exploratory data analysis, machine learning, and business scenario modeling, this analysis evaluates response time, interaction cost, customer satisfaction, sentiment, and resolution performance. The results suggest that AI significantly improves efficiency while maintaining comparable customer satisfaction, though human agents continue to outperform AI in customer sentiment.
+
+## Key Findings
 
 | Metric | Result |
 |--------|--------:|
@@ -19,19 +19,20 @@ Using python, statisical hypothesis testing, exploratory data analysis, and busi
 | Customer Sentiment | **0.30 (AI)** vs **0.40 (Human)** |
 | Projected Annual Savings | **$20,621** at **75% AI adoption** |
 
-Bottom Line: AI significantly reduced response time and operational costs while maintaining comparable customer satisfaction. Human agents produced slightly stronger customer sentiment, suggesting a hybrid support strategy may provide the best balance between efficiency and customer experience.
+**Bottom line:** AI significantly reduced response time and operational costs while maintaining comparable customer satisfaction. Human agents produced slightly stronger customer sentiment, and the two machine learning models tested here had limited predictive power on the available features — suggesting a hybrid support strategy, backed by better routing data, may offer the best balance between efficiency and customer experience.
 
 ## Business Question
-Can AI-powered customer support reduce operational costs and improve efficiency without negatively affecting customer experience? 
 
-## Data Source 
+Can AI-powered customer support reduce operational costs and improve efficiency without negatively affecting customer experience?
+
+## Data Source
 
 This project uses a synthetic customer support dataset representing approximately six months of customer service interactions. The dataset was designed to simulate real-world operational and customer experience metrics commonly tracked by organizations evaluating AI-powered support solutions.
 
 The dataset contains information on:
 
 - Customer interaction timestamps
-- Support channel (AI Chatbot or Human Agent)
+- Support channel (AI chatbot or human agent)
 - Query type
 - Response time
 - Resolution status
@@ -43,7 +44,7 @@ The dataset contains information on:
 
 The dataset was used to evaluate operational efficiency, customer experience, statistical significance, machine learning performance, and the potential financial impact of increased AI adoption.
 
-## Featuring Engineering 
+## Feature Engineering
 
 Several derived features and business metrics were created to support statistical analysis, machine learning, and business impact modeling.
 
@@ -100,7 +101,7 @@ While satisfaction scores were comparable, customer sentiment analysis revealed 
 
 ## Statistical Analysis
 
-To determine whether differences between AI chatbot and human agent performance were statistically significant, a series of **Independent Samples t-tests** were conducted. Each test evaluated whether the average performance differed between support methods across key operational and customer experience metrics.
+To determine whether differences between AI chatbot and human agent performance were statistically significant, a series of independent samples t-tests were conducted. Each test evaluated whether average performance differed between support methods across key operational and customer experience metrics.
 
 The following hypotheses were tested:
 
@@ -113,14 +114,14 @@ The following hypotheses were tested:
 
 | Metric | AI Mean | Human Mean | t-statistic | p-value | Conclusion |
 |---------|--------:|-----------:|------------:|---------|------------|
-| Customer Satisfaction | 3.31 | 3.23 | -2.60 | 0.0092 | Significant |
-| Interaction Cost | $3.01 | $7.00 | 131.64 | <0.001 | Significant |
-| Response Time | 1.51 min | 7.05 min | 132.36 | <0.001 | Significant |
-| Customer Sentiment | 0.299 | 0.401 | 17.34 | <0.001 | Significant |
+| Customer Satisfaction | 3.31 | 3.26 | -2.60 | 0.009 | Significant |
+| Interaction Cost | $3.01 | $7.00 | 131.64 | < 0.001 | Significant |
+| Response Time | 1.51 min | 7.05 min | 132.35 | < 0.001 | Significant |
+| Customer Sentiment | 0.299 | 0.401 | 17.34 | < 0.001 | Significant |
 
 All four independent samples t-tests produced statistically significant results (p < 0.05). The largest practical differences were observed in response time and interaction cost, while customer satisfaction showed only a small difference in average scores despite statistical significance. Customer sentiment was significantly higher for human-assisted interactions.
 
-# Machine Learning
+## Machine Learning
 
 To extend the statistical analysis, two Random Forest classification models were developed to evaluate how machine learning could support customer support operations.
 
@@ -129,7 +130,7 @@ The models focused on two practical business questions:
 1. **Can we predict whether a customer interaction will require follow-up?**
 2. **Can we predict whether an incoming interaction should be handled by an AI chatbot or a human agent?**
 
-Both models were evaluated using classification metrics including accuracy, precision, recall, and F1-score.
+Both models were evaluated using classification metrics including accuracy, precision, recall, and F1-score. Both are exploratory: they highlight the limits of the available features for these business questions more than they provide production-ready predictions.
 
 ### Model 1: Predicting Follow-Up Requirements
 
@@ -144,11 +145,9 @@ The first Random Forest model predicted whether a customer interaction would req
 | Recall | **0.01** |
 | F1-Score | **0.02** |
 
-
 <p align="center">
-  <img src="images/Model 1 Confusion Matrix.png" width="700">
+  <img src="images/Model 1 Confusion Matrix.png" width="500">
 </p>
-
 
 Although the Random Forest model achieved an overall accuracy of 81%, the confusion matrix revealed that it correctly identified only 4 of 370 interactions requiring follow-up (1.1% recall). While the model performed well at identifying interactions that did not require follow-up, it was ineffective at detecting the cases most important from an operational perspective. These results suggest that the available predictor variables were not sufficient to accurately identify customers requiring additional support.
 
@@ -166,8 +165,11 @@ A second Random Forest classifier was developed to predict whether an incoming c
 | F1-Score (Human Agent) | **0.54** |
 | Support | **1,024** |
 
+<p align="center">
+  <img src="images/Model 2 Confusion Matrix.png" width="500">
+</p>
 
-The model achieved **52% overall accuracy**, with modest precision and recall for predicting interactions requiring a human agent. These results indicate that the available interaction characteristics were not sufficient to reliably distinguish between cases best suited for AI chatbots versus human support. Additional features, such as inquiry complexity, customer history, or natural language data from customer messages, may improve model performance and support more effective automated routing decisions.
+Although the second Random Forest model achieved an overall accuracy of 52%, the confusion matrix revealed that predictions were distributed nearly evenly across all four outcome categories (481, 495, 461, and 563). The model correctly identified human agent interactions slightly more often than not (563 of 1,024, approximately 55% recall), while AI chatbot interactions were correctly classified at a rate close to chance. This near-uniform distribution across the matrix indicates that the model was largely unable to distinguish between interactions best suited for AI versus human support. These results reinforce the conclusion that the available interaction characteristics were not sufficient to reliably guide automated routing decisions, and that additional features would likely be necessary to improve performance.
 
 ## Business Impact Analysis
 
@@ -178,7 +180,7 @@ The analysis compared current support costs with projected costs under higher le
 ### AI Adoption Scenarios
 
 <p align="center">
-  <img src="images/Support Costs.png" width="700">
+  <img src="images/Support Costs.png" width="900">
 </p>
 
 Increasing AI adoption produced substantial reductions in projected support costs. While AI chatbots significantly reduced operational expenses and response times, customer satisfaction remained relatively stable, suggesting that greater automation may be implemented without negatively affecting overall service quality.
@@ -189,7 +191,7 @@ Increasing AI adoption produced substantial reductions in projected support cost
   <img src="images/Projected Savings.png" width="700">
 </p>
 
-The scenario analysis estimated that increasing AI utilization to **75%** could reduce annual customer support costs by approximately **$20,621**. Higher adoption levels generated even greater long-term savings, demonstrating the financial value of strategically expanding AI-assisted customer support.
+The scenario analysis estimated that increasing AI utilization to 75% could reduce annual customer support costs by approximately $20,621. Higher adoption levels generated even greater long-term savings, demonstrating the financial value of strategically expanding AI-assisted customer support.
 
 ## Conclusion & Recommendations
 
@@ -212,15 +214,29 @@ Overall, the analysis supports a **hybrid customer support strategy**, where AI 
 Several opportunities exist to extend this analysis and improve both the predictive models and business recommendations:
 
 - **Incorporate additional customer interaction features**, such as inquiry complexity, conversation length, historical customer behavior, and text-based support transcripts to improve predictive performance.
-
 - **Address class imbalance** in the follow-up prediction model using techniques such as SMOTE, class weighting, or oversampling to improve detection of interactions requiring additional support.
-
 - **Evaluate additional machine learning algorithms**, including Gradient Boosting, XGBoost, and LightGBM, to compare predictive performance against the Random Forest models.
-
 - **Develop a real-time support routing model** capable of recommending whether incoming customer interactions should be assigned to an AI chatbot or a human agent.
-
 - **Build an interactive business intelligence dashboard** using Tableau or Power BI to monitor customer satisfaction, operational costs, response times, and AI adoption metrics.
-
 - **Validate the analysis using real-world customer support data** to assess model performance and business impact in a production environment.
 
+## Tools & Libraries
 
+- **Python** — pandas, NumPy
+- **Statistical analysis** — SciPy (independent samples t-tests)
+- **Machine learning** — scikit-learn (Random Forest classifiers)
+- **Visualization** — Matplotlib
+
+## Repository Structure
+
+```
+├── AI_Powered_Customer_Support.ipynb   # Full analysis notebook
+├── images/                             # Exported chart images used in this README
+└── README.md
+```
+
+## How to Run
+
+1. Clone the repository and install dependencies (`pandas`, `numpy`, `scipy`, `scikit-learn`, `matplotlib`).
+2. Open `AI_Powered_Customer_Support.ipynb` in Jupyter Notebook or JupyterLab.
+3. Run all cells to reproduce the EDA, statistical tests, machine learning models, and business impact scenarios.
